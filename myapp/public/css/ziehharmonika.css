@@ -1,0 +1,94 @@
+/* @author Tim himself */
+
+.ziehharmonika h3 {
+    color: #000000;
+    text-align: left;
+    border-radius: 0px;
+    padding: 21px 10px;
+    cursor: pointer;
+    margin-top: 0;
+    margin-bottom: 22px;
+    padding-right: 40px;
+    transition: 0.25s all;
+    position: relative;
+    background: rgba(34, 188, 255, 0.04);
+    border-left: 3px solid #22bcff;
+    box-shadow: -7px 7px 10px rgba(0, 0, 0, 0.12);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.ziehharmonika h3:nth-child(4) {
+    margin-bottom: 0px;
+}
+.ziehharmonika h3.active {
+    margin-bottom: 21px;
+    background: #000000;
+    /* border: 6px solid rgba(44, 185, 139, 0.01); */
+    color: #fff;
+}
+.ziehharmonika h3::before {
+	content: attr(data-prefix);
+	font-size: 18px;
+	margin-right: 9px;
+}
+.ziehharmonika > div {
+    display: none;
+    background: #fff;
+    border-radius: 0;
+    border: 1px solid rgba(205, 205, 205, 0.27);
+    text-align: left;
+    padding: 31px 33px;
+    margin-bottom: 9px;
+    box-shadow: -7px 7px 10px rgba(0, 0, 0, 0.12);
+}
+.ziehharmonika .arrowDown {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 13.0px 7.5px 0 7.5px;
+	border-color: #272e35 transparent transparent transparent;
+	position: absolute;
+	bottom: 0;
+	left: 40px;
+	transition: 0.25s all;
+	opacity: 0;
+}
+.ziehharmonika .active .arrowDown {
+    bottom: -13px;
+    border-color: #000000 transparent transparent transparent;
+    opacity: 1;
+}
+.ziehharmonika .collapseIcon {
+	    position: absolute;
+    right: 20px;
+    top: 52%;
+    font-size: 30px;
+    font-weight: 400;
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+/*--/Responsive--*/
+@media(max-width:640px){
+	.ziehharmonika > div {
+		display: none;
+		background: #fff;
+		border-radius: 0;
+		border: 1px solid #cdcdcd;
+		text-align: left;
+		padding: 15px 15px;
+		margin-bottom: 9px;
+	}
+	.ziehharmonika h3 {
+      padding: 15px 20px;
+	}
+}
+@media(max-width:414px){
+	.ziehharmonika h3 {
+		padding: 9px 15px;
+		margin-bottom: 14px;
+		padding-right: 40px;
+		font-size: 1.2em;
+	}
+}
+/*--//Responsive--*/
