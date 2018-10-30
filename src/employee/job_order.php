@@ -2,7 +2,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['username'])){
-header("location:index.php");
+    header("location:../home/index.php");
 }
 include('db.php');
 $gentquery=mysql_query("SELECT * FROM clothes  WHERE category_id=1");
@@ -17,9 +17,24 @@ $householdquery=mysql_query("SELECT * FROM clothes  WHERE category_id=3");
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+       
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <script src="js/modernizr.custom.js"></script>
+        <style>
+            ul {
+                    list-style-type: none;
+                    margin-top: 10px;
+                    padding-left:25px ;
+                    float:none;
+                }
+            li{
+                padding-left:10px;
+                float:left;
+                color:green;
+            }
+
+        </style>
     </head>
     <body>
     	<div id="header">
@@ -44,7 +59,9 @@ $householdquery=mysql_query("SELECT * FROM clothes  WHERE category_id=3");
                <form style="float:left; width:18%;margin-top:20px;" action="ratechart.php" method="get"> <button type="submit" class="btn btn-primary">View Rate Chart</button> </form>
                <form action="placeorder.php" method="post">
                <label for="name"  style="float:left; width:10%;margin-top:25px;">Client Name</label>
+               
                <input type="text" class="form-control" id="name" placeholder="Name" name="name" style="float:left; width:20%;margin-top:20px;">
+               <div id="result" style=""></div>
                <button type="submit" class="btn btn-primary" style="float:right; width:10%; margin-top:20px; margin-right:20px;">Submit</button>
                <br/><br/><br/>
                
@@ -92,5 +109,35 @@ $householdquery=mysql_query("SELECT * FROM clothes  WHERE category_id=3");
         <div id="footer"> <p id="leftContent">Laundry Management System</p>
         </div>
         <script src="js/ytmenu.js"></script>
+
     </body>
 </html>
+<script src ="../home/js1/jquery-2.js"></script>
+<script>
+$(document).ready(function(){
+$('#name').keyup(function(){
+     var query = $(this).val();
+     if(1)
+     {
+          $.ajax({
+               url:"./name_search.php",
+               method:"POST",
+               data:{query:query},
+               success:function(data)
+               {
+                    $('#result').fadeIn();
+                    $('#result').html(data);
+               }
+          });
+     }
+
+});
+$(document).on('click', 'li', function(){
+     $('#name').val($(this).text());
+     $('#result').fadeOut();
+});
+$('body').on('click',function(){
+    $('#result').fadeOut();
+})
+});
+</script>

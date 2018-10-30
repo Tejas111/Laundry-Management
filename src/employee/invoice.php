@@ -2,7 +2,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['username'])){
-header("location:index.html");
+header("location:../home/index.php");
 }
 include('db.php');
 $query=mysql_query("SELECT * FROM job_order ORDER BY delivery_status asc, submission_date asc");
@@ -68,11 +68,11 @@ $query=mysql_query("SELECT * FROM job_order ORDER BY delivery_status asc, submis
 						  echo "<td>$row[5]</td>";
 						  echo "<td>$row[6]</td>";
 						  if($row[7] == 0)
-						     echo "<td>Processing</td>";
+						     echo "<td style='color:red'>Processing</td>";
 						  elseif($row[7] == 1)
-						     echo "<td>Ready</td>";	 
+						     echo "<td style='color:orange'>Ready</td>";	 
 						  else
-						     echo "<td>Delivered</td>"; 
+						     echo "<td style='color:green'>Delivered</td>"; 
 						  echo "</tr>";	 
                       }
                 ?>  

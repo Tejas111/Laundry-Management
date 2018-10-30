@@ -3,7 +3,7 @@
 error_reporting(E_ALL ^ E_DEPRECATED);
 session_start();
 if(!isset($_SESSION['username'])){
-header("location:index.php");
+    header("location:../home/index.php");
 }
 $link = mysql_connect('localhost', 'root', 'mysql');
 

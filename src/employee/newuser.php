@@ -14,6 +14,7 @@ if (!$link) {
 	//echo $email;
 	$name=mysqli_real_escape_string($link, $_POST['name']);
 	//echo $name;
+	strtolower($name);
 	$address=mysqli_real_escape_string($link, $_POST['address']);
 	//echo $address;
 	$mobile=mysqli_real_escape_string($link, $_POST['mobile']);
@@ -25,11 +26,15 @@ if (!$link) {
 	$sql="INSERT INTO appusers(username,password,email,mobile_no,address,registration_date) VALUES('$name','$password','$email','$mobile','$address','$reg_date')";
 	if(mysqli_query($link,$sql))
 	{
-		$_SESSION['error11']='user registered successfully';
-		header("location:../home/index.php");
+		// $_SESSION['error11']='user could not be registered';
+		// header("location:../home/index.php");
 		echo "user registered succesfully ";
 		
-	};
+	}
+	// else{
+	// 	header('locatio')
+	// }
+	;
 
 ?>
 <!-- <script>

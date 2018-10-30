@@ -13,7 +13,7 @@
     <meta name="author" content="Colorlib">
     <meta name="keywords" content="Colorlib Templates">
 
-  <!-- Facebook and Twitter integration -->
+  <!-- Facebook and Twitter integration
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
 	<meta property="og:url" content=""/>
@@ -22,7 +22,7 @@
 	<meta name="twitter:title" content="" />
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+	<meta name="twitter:card" content="" /> -->
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
@@ -74,7 +74,7 @@
 			</div>
 
 		</aside>
-
+		
 		<div id="colorlib-main">
 			
 			<div class="colorlib-work">
@@ -90,17 +90,17 @@
                     <h2 class="title">Edit Your Profile</h2>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="./custupdate.php">
+                   
                     	  <div class="form-row">
                             <div class="name">Fullname</div>
                             <div class="value">
-                                <input class="input--style-6" type="text" name="name">
+                                <input id ="name" class="input--style-6" type="text" name="name">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="name">Contact No.</div>
                             <div class="value">
-                                <input class="input--style-6" type="text" name="mobile_no">
+                                <input id ="mobile" class="input--style-6" type="text" name="mobile_no">
                             </div>
                         </div>
                         <!-- <div class="form-row">
@@ -121,7 +121,7 @@
                             <div class="name">Email address</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="email" name="email" placeholder="example@email.com">
+                                    <input id="email" class="input--style-6" type="email" name="email" placeholder="example@email.com">
                                 </div>
                             </div>
                         </div>
@@ -137,14 +137,17 @@
                             <div class="name">Address</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <textarea class="textarea--style-6" name="address" placeholder="Address of pick up"></textarea>
+                                    <textarea class="textarea--style-6" id="address" name="address" placeholder="Address of pick up"></textarea>
                                 </div>
                             </div>
                         </div>
 						<div class="card-footer">
-							<button class="btn btn--radius-2 btn--blue-2" type="submit">Update</button>
+							<button class="btn btn--radius-2 btn--blue-2" id="submit" type="submit">Update</button>
 						</div>
-                    </form>
+						<div id="result">
+
+						</div>
+                    
                 </div>
                 
             </div>
@@ -156,22 +159,7 @@
 			</div>
 			
 
-			<div id="get-in-touch" class="colorlib-bg-color">
-				<div class="colorlib-narrow-content">
-					<div class="row">
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<h2>Get in Touch!</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
-							<p class="colorlib-lead">Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-							<p><a href="#" class="btn btn-primary btn-learn">Contact me!</a></p>
-						</div>
-						
-					</div>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 
@@ -199,6 +187,36 @@
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
 
+	<!-- <script src="../home/js1/jquery-2.js"></script> -->
+	<script>
+
+		$("#submit").click(function(){
+			var t_name=$("#name").val();
+
+		var t_email=$("#email").val();
+
+		var t_mob=$("#mobile").val();
+		var t_address = $("#address").val();
+
+					$.ajax({
+
+				url:'./custupdate.php',
+				
+				data:{name:t_name,email:t_email,mobile_no:t_mob,address:t_address},
+				type:'POST',
+
+				success:function(data){
+					console.log('heelo hello');
+					console.log(data);
+					$("#result").html('<p style="color:red;text-align:center">'+data+'</p>');
+				}
+
+
+		})
+					})
+	
+				
+	</script>
 	</body>
 </html>
 

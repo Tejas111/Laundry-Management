@@ -4,21 +4,15 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 session_start();
 
 if(!isset($_SESSION['mobile'] )){
-header("location:index.html");
+header("location:../home/index.php");
 }
 
 // session_start();
 $mobile =$_SESSION['mobile'];
-include('../db.php');
+include('../employee/db.php');
 $query = mysql_query("SELECT * from job_order where client_id in (SELECT id from clients where contact_no = '$mobile')ORDER BY delivery_status asc, submission_date asc");
 // $result2 = mysql_query($query) or die($query."<br/><br/>".mysql_error());
 ?>
-
-
-
-
-
-
 
 <!DOCTYPE HTML>
 <html>
@@ -89,26 +83,27 @@ $query = mysql_query("SELECT * from job_order where client_id in (SELECT id from
 	<div id="colorlib-page">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="border js-fullheight">
-			<h1 id="colorlib-logo"><a href="index.html"><span>Deterge</span><span>Laundry</span></a></h1>
+			<h1 id="colorlib-logo"><a href="index.html"><span>Laundry</span><span>Point</span></a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
 				<li class="colorlib-active"><a href="custindex.php">Home</a></li>
 					<li> <a href="work.html">Edit Profile</a></li>
+					<li> <a href="work.html">Place Order</a></li>
 					<li><a href="../employee/logout.php">Logout</a></li>
 				</ul>
 			</nav>
 
-			<div class="colorlib-footer">
+			<!-- <div class="colorlib-footer">
 				<ul>
 					<li><a href="#"><i class="icon-facebook2"></i></a></li>
 					<li><a href="#"><i class="icon-twitter2"></i></a></li>
 					<li><a href="#"><i class="icon-instagram"></i></a></li>
 					<li><a href="#"><i class="icon-linkedin2"></i></a></li>
 				</ul>
-			</div>
+			</div> -->
 
 		</aside>
-<div id="colorlib-main">
+		<div id="colorlib-main">
 
 			<div class="colorlib-work">
 				<div class="container-fluid">
@@ -117,6 +112,10 @@ $query = mysql_query("SELECT * from job_order where client_id in (SELECT id from
 					
 				</div>
 			</div>
+        
+				
+					
+
 			<div id="block">
                <h4 style="font-weight:bold;text-align:center;text-decoration:underline">Invoice History</h4>
                <div id="insideblock">
@@ -136,8 +135,8 @@ $query = mysql_query("SELECT * from job_order where client_id in (SELECT id from
 				<tbody>  
                 <?php
                       while ($row = mysql_fetch_array($query)) {
-						  echo "<tr>";
-						  echo "<td>$row[0]</td>";
+						echo "<tr>";
+						echo '<td><a href="./custinvoice.php?invoiceid='.$row[0].'">'.$row[0].'</a></td>';
 						  $clientnamerow = mysql_fetch_array(mysql_query("SELECT fullname FROM clients WHERE id='$row[2]'"));
 						  $employeenamero = mysql_fetch_array(mysql_query("SELECT username from appusers WHERE id =(SELECT user_id FROM job_order WHERE id ='$row[0]')"));
 						  echo "<td>$clientnamerow[0]</td>";
@@ -147,22 +146,20 @@ $query = mysql_query("SELECT * from job_order where client_id in (SELECT id from
 						  echo "<td>$row[5]</td>";
 						  echo "<td>$row[6]</td>";
 						  if($row[7] == 0)
-						     echo "<td>Processing</td>";
+						     echo "<td style='color:red'>Processing</td>";
 						  elseif($row[7] == 1)
-						     echo "<td>Ready</td>";	 
+						     echo "<td style='color:orange'>Ready</td>";	 
 						  else
-						     echo "<td>Delivered</td>"; 
+						     echo "<td style='color:green'>Delivered</td>"; 
 						  echo "</tr>";	 
                       }
                 ?>  
 				</tbody>  
 			</table> 
         </div>
-<?php
-
-
-?>		
-
+	</div>
+	</div>
+        </div>
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->

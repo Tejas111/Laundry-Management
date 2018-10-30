@@ -10,13 +10,13 @@ if (!$link) {
 	$name=mysqli_real_escape_string($link, $_POST['name']);
     $mobile=mysqli_real_escape_string($link, $_POST['mobile_no']);
     $email =mysqli_real_escape_string($link, $_POST['email']);;
-    $address =mysqli_real_escape_string($link, $_POST['address']);;
-    $query=mysql_query("UPDATE clients set fullname='$name',contact_no='$mobile',email='$email',address='$address' WHERE contact_no='$contact' ");
+    $address =mysqli_real_escape_string($link, $_POST['address']);
+    $query=mysqli_query($link,"UPDATE clients set fullname='$name',contact_no='$mobile',email='$email',address='$address' WHERE contact_no='$contact' ");
     if ($query) {
         echo "Record updated successfully";
         $_SESSION['mobile'] = $mobile;
     } else {
-        echo "Error updating record: " . mysqli_error($conn);
+        echo "Error updating record";
     }
 	// $num=mysql_num_rows($query);
 	// if($num==1){

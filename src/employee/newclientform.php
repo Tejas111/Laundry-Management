@@ -2,7 +2,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['username'])){
-header("location:index.php");
+    header("location:../home/index.php");
 }
 ?>
 <html lang="en">
@@ -36,36 +36,40 @@ header("location:index.php");
             </div><!-- content -->
             <div id="block">
                   <h4 >Register New Client</h4>
-                  <div id="formblock">
-           <form action="clientregister.php" method="post">
-                 <div class="form-group">
-                 <label for="name">Name</label>
-                 <input type="text" class="form-control" id="name" placeholder="Name" name="name" style="width:200px;">
-                 </div>
-                 <div class="form-group">
-                 <label for="mobile_no">Contact No.</label>
-                 <input type="text" class="form-control" id="mobile_no" placeholder="Mobile No." name="mobile_no" style="width:200px;">
-                 </div>
-                 <div class="form-group">
-                 <label for="mobile_no">Address</label>
-                 <input type="text" class="form-control" id="mobile_no" placeholder="Address" name="address" style="width:200px;">
-                 </div>
-                 <div class="form-group">
-                 <label for="mobile_no">Email</label>
-                 <input type="email" class="form-control" id="mobile_no" placeholder="Email" name="email" style="width:200px;">
-                 </div>
-                 <div class="form-group">
-                 <label for="agerange">Age Range</label>
-                 <select class="form-control" name="agerange" style="width:200px;"><option value="0">Under 22</option><option value="1" selected="selected">22-45</option><option value="2">Over 45</option></select>
-                 </div>
-                 <div class="form-group">
-                 <label for="sex">Sex</label>
-                 <select class="form-control" name="sex" style="width:200px;"><option value="0">Male</option><option value="1" selected="selected">Female</option></select>
-                 </div>
-   				 <button type="submit" class="btn btn-primary">Register</button>
-		</form>
+                <div id="formblock">
+                  <form action="clientregister.php" method="post">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                 <input type="text" class="form-control" id="name" placeholder="Name" name="name" style="width:200px;">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile_no">Contact No.</label>
+                                <input type="text" class="form-control" id="mobile_no" placeholder="Mobile No." name="mobile_no" style="width:200px;">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile_no">Address</label>
+                                 <input type="text" class="form-control" id="mobile_no" placeholder="Address" name="address" style="width:200px;">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile_no">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Email" name="email" style="width:200px;">
+                            </div>
+                            <div class="form-group">
+                                <label for="agerange">Age Range</label>
+                                <select class="form-control" name="agerange" style="width:200px;"><option value="0">Under 22</option><option value="1" selected="selected">22-45</option><option value="2">Over 45</option></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sex">Sex</label>
+                                <select class="form-control" name="sex" style="width:200px;"><option value="0">Male</option><option value="1" selected="selected">Female</option></select>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Register</button>
+                            <br>
+                            
+		            </form>
+               </div>
          </div>
-            </div>
+       </div>
         </div>
         
         <div id="footer"> <p id="leftContent">Laundry Management System</p>

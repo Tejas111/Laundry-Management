@@ -8,7 +8,7 @@ if (!$link) {
 }
 	$name=mysqli_real_escape_string($link, $_POST['username']);
 	$mobile=mysqli_real_escape_string($link, $_POST['password']);;
-	$query=mysql_query("SELECT * FROM clients WHERE fullname='$name' AND contact_no='$mobile'");
+	$query=mysqli_query($link,"SELECT * FROM clients WHERE fullname='$name' AND contact_no='$mobile'");
 	$num=mysqli_num_rows($query);
 	if($num==1){
 		$_SESSION['mobile']= $mobile;
