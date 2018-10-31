@@ -85,6 +85,7 @@ color:red;
 											<a  class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown">Signup <b class="caret"></b></a>
 											<ul class="dropdown-menu">
 											<li><a href="#myModal3" data-toggle="modal">Signup As Employee</a></li>
+											<!-- <li><a href="#myModal5" data-toggle="modal">Signup As Customer</a></li> -->
 											</ul>
 										</li>
 									<li class="dropdown">
@@ -92,6 +93,7 @@ color:red;
 											<ul class="dropdown-menu">
 												<li><a href="#myModal2" data-toggle="modal">login as Emp</a></li>
 												<li><a href="#myModal4" data-toggle="modal">login as Cust </a></li>
+												<li><a href="#myModal5" data-toggle="modal">login as Admin </a></li>
 											</ul>
 										</li>
 									<!-- <li><a href="contact.html">Contact</a></li> -->
@@ -385,8 +387,8 @@ color:red;
 										<div class="agileits-login">
 										<h5>Login As Customer</h5>
 										
-												<input type="text" id="username2" name="username" placeholder="Username" required=""/>
-												<input type="password" id="password2" name="password" placeholder="Password(Mobile Number)" required=""/>
+												<input type="text" id="username2" name="username" placeholder="Email" required=""/>
+												<input type="password" id="password2" name="password" placeholder="Password" required=""/>
 											<div class="wthree-text"> 
 												
 												<div class="clearfix"> </div>
@@ -403,6 +405,39 @@ color:red;
 				</div> <!-- //login-page -->
 			</div>
 		</div>
+		<!-- Modal for Admin -->
+		<div class="modal about-modal w3-agileits fade" id="myModal5" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+				</div> 
+				<div class="modal-body login-page "><!-- login-page -->     
+									<div class="login-top sign-top">
+										<div class="agileits-login">
+										<h5>Login As Admin</h5>
+										
+												<input type="text" id ='username3' name="username" placeholder="Username" required=""/>
+												<input type="password" id ='password3'name="password" placeholder="Password" required=""/>
+											<div class="wthree-text"> 
+												<ul> 
+													
+												</ul>
+												<div class="clearfix"> </div>
+											</div>  
+											<div class="w3ls-submit"> 
+												<input type="submit" id="submita" value="LOGIN">  	
+											</div>	
+											<div id="result3" text-align='center'>
+											</div>
+
+										</div>  
+									</div>
+						</div>  
+				</div> <!-- //login-page -->
+			</div>
+		</div>
+		<!-- end modal for Admin -->
 		<!-- End of modal 4 -->
 <!-- modal 2 for employee login-->
 	<div class="modal about-modal w3-agileits fade" id="myModal2" tabindex="-1" role="dialog">
@@ -499,6 +534,74 @@ color:red;
 			</div>
 		</div>
 	<!-- //modal --> 
+
+	<!-- Customer Signup Page -->
+	<!-- modal -->
+	<div class="modal about-modal w3-agileits fade" id="myModal5" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+				</div> 
+				<div class="modal-body login-page "><!-- login-page -->     
+									<div class="login-top sign-top">
+										<div class="agileits-login">
+										<h5>Register As Customer</h5>
+										
+												<div>
+												<input type="text"  id = "name2" name="name" placeholder="Username" required="true"/>
+												<span class="error_message" id="name_error2"></span>
+												</div>
+												
+												<div>
+													<input type="text" id="email2" class="Email" name="email" placeholder="Email" required="true"/>
+													<span class="error_message" id="email_error2"></span>
+													<span class="error_message" id="email_error3"></span>
+												</div>
+												<div>
+												<!-- <label for="agerange">Age Range</label> -->
+                               						 <select class="form-control" id='age2'><option value="0">Under 22(age)</option><option value="1" selected="selected">22-45(age)</option><option value="2">Over 45(age)</option></select>
+												</div>
+												<br>
+												<div>
+													<input type="text" id="address2" name="address" placeholder="Enter Address" required=""/>
+													<!-- <span class="error_message" id="teaching_error"></span> -->
+												</div>
+												<div>
+													<!-- <label for="sex">Sex</label> -->
+													<select class="form-control" id='sex2'><option value="0">Male</option><option value="1" selected="selected">Female</option></select>
+												</div>
+												<br>
+												<div>
+													<input type="text" id="mobile2" name="mobile" placeholder="Enter Mobile No." required=""/>
+													<span class="error_message" id="mobile_error2"></span>
+												</div>
+												
+											
+											<div class="wthree-text"> 
+												<ul> 
+													<li>
+														<label class="anim">
+															<input type="checkbox" class="checkbox" required='true'>
+															<span> I accept the terms of use</span> 
+														</label> 
+													</li>
+												</ul>
+												<div class="clearfix"> </div>
+											</div>  
+											<div class="w3ls-submit"> 
+												<input type="submit" id="submit" name="submit" value="Register">  	
+											</div>
+										<div id="result" style="text-alignment:center" ></div>
+										</div>  
+
+									</div>
+						</div>  
+				</div> <!-- //login-page -->
+			</div>
+		</div>
+	<!-- //modal --> 
+	<!-- end customer page -->
 	<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 <!-- //smooth scrolling -->
 <script type="text/javascript" src="js1/jquery-2.1.4.min.js"></script>
@@ -558,8 +661,19 @@ color:red;
 <!-- for for validation of components -->
 <script src="js1/jquery-2.1.4.min.js"></script>
 
+<!-- <script>
+	$(document).ready(function(){
+		$("#email_error2").hide();
+		$("#email").focusout(function() {
+	check_email();
+	});
+$("#email").focusout(function() {
+	checkagain();
+}
+</script> -->
 <script type="text/javascript">
 
+	
 	$(document).ready(function(){
 
 	$("#name_error").hide();
@@ -835,6 +949,37 @@ $('#submitc').click(function(){
 		}
 	});
 	});
+
+
+// ADMIN
+$('#submita').click(function(){
+		var username = $('#username3').val();
+		var password = $('#password3').val();
+		if(username!='' && password !=''){
+			$.ajax({
+
+						url:'../admin/auth.php',
+
+						data:{username:username,password:password},
+						type:'POST',
+
+						success:function(data){
+							console.log('heelo hello');
+							console.log(data);
+							// 
+							string1 = 'Wrong Username or Password';
+							if(!(string1.localeCompare(data))){
+								$("#result3").html('<p style="color:red;text-align:center">'+data+'</p>');
+							}
+							else{
+								window.location.href = '../admin/login_success.php';
+							}
+							
+						}
+
+					});
+		}
+	})
 </script>
 </body>
 </html>

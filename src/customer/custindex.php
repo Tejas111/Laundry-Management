@@ -6,11 +6,13 @@ session_start();
 if(!isset($_SESSION['mobile'] )){
 header("location:../home/index.php");
 }
-
+if(isset($_SESSION['err'])){
+	echo '<p>'.$_SESSION['err'].'<p>';
+}
 // session_start();
 $mobile =$_SESSION['mobile'];
 include('../employee/db.php');
-$query = mysql_query("SELECT * from job_order where client_id in (SELECT id from clients where contact_no = '$mobile')ORDER BY delivery_status asc, submission_date asc");
+$query = mysql_query("SELECT * from job_order where client_id in (SELECT id from clients where email = '$mobile')ORDER BY delivery_status asc, submission_date asc");
 // $result2 = mysql_query($query) or die($query."<br/><br/>".mysql_error());
 ?>
 
@@ -88,7 +90,7 @@ $query = mysql_query("SELECT * from job_order where client_id in (SELECT id from
 				<ul>
 				<li class="colorlib-active"><a href="custindex.php">Home</a></li>
 					<li> <a href="work.html">Edit Profile</a></li>
-					<li> <a href="work.html">Place Order</a></li>
+					<li> <a href="./custorder.php">Place Order</a></li>
 					<li><a href="../employee/logout.php">Logout</a></li>
 				</ul>
 			</nav>
@@ -159,7 +161,18 @@ $query = mysql_query("SELECT * from job_order where client_id in (SELECT id from
         </div>
 	</div>
 	</div>
-        </div>
+		</div>
+		<?php
+    if(isset($_SESSION['err'])){
+        echo "
+            <script type=\"text/javascript\">
+            alert('previous order successfull');
+            </script>
+		";
+		// session_destroy();
+		unset($_SESSION["err"]);
+     }
+  ?>
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->

@@ -19,17 +19,19 @@ if (!$link) {
 	$usermobileno = $usermobilecol[0];
 	$clientname = $clientnamerow[0];
 	$status = $joborderrow[7];
-           $output = "<div>
-                <h5 style='text-align:center'>Cash Bill</h5>+'<br>'
-                  <h3style='text-align:center'>DETERGE LAUNDRY</h3>"+'<br>'+
-                    '<h5>Mobile:' .$usermobileno.'<h5>'+
+           $output .= "<div>";
+           $output .= ' <h5 style="text-align:center">Cash Bill</h5>';
+           $output .=    '<h3 style="text-align:center;font-weight:bold"> LAUNDRY POINT</h3>';
+           $output .=  '<h5 style="text-align:center">Mobile:' .$usermobileno.'<h5>';
                   $output.= '<span style="float:left;">Invoice Id:'. $invoiceid.'</span>';
-                  $output.=  '<span style="float:right; width:20%;">Date:'.$joborderrow[3].'</span>';
+                 
                   $output.=  '<span style="float:right;">Delivery Date:'. $joborderrow[4].'</span>';
-                  $output.= '<br>'.
-                  $output.= '<span style="float:left;">Name : '.$clientname.'</span>';
                   $output.= '<br>';
-                  '<table class="table table-striped table-bordered table-hover">
+                  $output.= '<span style="float:left;">Name : '.$clientname.'</span>';
+                  $output.=  '<span style="float:right;">Date:'.$joborderrow[3].'</span>';
+                  $output.= '<br>';
+                  $output.=
+                  '<table border="1">
                   <col width="10%">
                   <col width="40%">
                   <col width="10%">
@@ -44,27 +46,16 @@ if (!$link) {
                         <th>Laundry/Dry Clean</th>   
 					</tr>  
 				</thead>  
-                <tfoot>
-   					 <tr>
-   						   <td></td>
-     					   <td>Total</td>';
-                        $output .= 
-						   '<td>'.$joborderrow[5].'</td>'+
-                           '<td>'.$joborderrow[6].'</td>'+
-						   
-                           '<td></td>'+
-   					 '</tr>'+
-  				'</tfoot>'+
-				'<tbody>';
-					$i=0;
+                <tfoot>';
+                $i=0;
 					   while ($row = mysql_fetch_array($orderdetails)) {
 						   $i++;
                            $output.= 
-                            '<tr>'+
-						    '<td>'.$i.'</td>'+
-						  '<td>'.$row[1].'</td>'+
-						  '<td>'.$row[2].'</td>'+
-						  '<td>'.$row[3].'</td>';
+                            '<tr>';
+						    $output.= '<td>'.$i.'</td>';
+                            $output.= '<td>'.$row[1].'</td>';
+                            $output.=  '<td>'.$row[2].'</td>';
+                            $output.= '<td>'.$row[3].'</td>';
 						  if($row[4] == 0)
 						    $output.='<td>Laundry</td>'; 
 						  else
@@ -72,9 +63,22 @@ if (!$link) {
 						  $output.= '</tr>';	 
                        }
                     $output.=
-                '</tbody>'+
-                  '</table>'+
-                  '</div>';
+   					 '<tr>';
+                        $output.=    '<td></td>';
+                        $output.=  '<td>Total</td>';
+                        $output .= 
+						   '<td>'.$joborderrow[5].'</td>';
+                           $output.=   '<td>'.$joborderrow[6].'</td>';
+						   $output.= 
+                           '<td></td>
+   					 </tr>
+  				</tfoot>
+				<tbody>';
+					
+                    $output.=
+                '</tbody>
+                  </table>
+                  </div>';
 
 	if($status==0){
 		$mailMsg = "Your Order is being processed";

@@ -146,17 +146,17 @@ function exampleData3() {
 						<div class="dr-trigger"><span id="dr-icon" class="fa fa-bars"></span><a class="dr-label">Menu</a></div>
 						<ul>
 							<li><a id="dr-icon" class="fa fa-compass"  href="home.php">Dashboard</a></li>
-							<li><a id="dr-icon" class="fa fa-check-square-o" href="job_order.php">Job Order</a></li>
-							<!-- <li><a id="dr-icon" class="fa fa-bar-chart-o" href="reporting.php">Reporting</a></li>-->
-							 <li><a id="dr-icon" class="fa fa-pencil" href="invoice.php">Invoices</a></li>
+							<!-- <li><a id="dr-icon" class="fa fa-check-square-o" href="job_order.php">Job Order</a></li> -->
+							<li><a id="dr-icon" class="fa fa-bar-chart-o" href="reporting.php">Reporting</a></li>
+							<li><a id="dr-icon" class="fa fa-pencil" href="invoice.php">Invoices</a></li>
                             <li><a id="dr-icon" class="fa fa-phone" href="contact.php">Contact Us</a></li>
 							<li><a id="dr-icon" class="fa fa-power-off" href="logout.php">Logout</a></li>
 						</ul>
 					</nav>
             </div><!-- content -->
             <div id="block">
-                  <h4 style="float:left; width:10%; margin-left:23px;">Dashboard</h4> <br>
-                   <form  action="newclientform.php" method="get"> <button type="submit" class="btn btn-primary" style="float:right; width:20%;margin-top:20px;margin-right:20px;">Register New Client</button> </form><br><br>
+                  <!-- <h4 style="float:left; width:10%; margin-left:23px;">Dashboard</h4> <br> -->
+                  <!-- <form  action="newclientform.php" method="get"> <button type="submit" class="btn btn-primary" style="float:right; width:20%;margin-top:20px;margin-right:20px;">Register New Client</button> </form><br><br> -->
                <div id="insideblock">
              
                <h3>Top Clients Report</h3>

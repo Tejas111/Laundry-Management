@@ -59,7 +59,8 @@
 				<ul>
 					<li><a href="custindex.php">Home</a></li>
 					<li class="colorlib-active"><a href="work.html">Edit Profile</a></li>
-					<li><a href="../logout.php">Logout</a></li>
+					<li> <a href="./custorder.php">Place Order</a></li>
+					<li><a href="../employee/logout.php">Logout</a></li>
 				</ul>
 			</nav>
 
@@ -107,9 +108,9 @@
                             <div class="name">Age Range</div>
                             <div class="value">
 								<input class="input--style-6" type="text" name="agerange">
-								<!-- <label for="agerange">Age Range</label> -->
+								<label for="agerange">Age Range</label> -->
                  <!-- <select class="input--style-6" name="agerange" style="width:200px;"><option value="0">Under 22</option><option value="1" selected="selected">22-45</option><option value="2">Over 45</option></select> -->
-                            <!-- </div> --> -->
+                            <!-- </div> -->
                         <!-- </div> -->
                         <!-- <div class="form-row">
                             <div class="name">Full name</div>
@@ -125,14 +126,14 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="form-row">
-                            <div class="name">Phone Number</div>
+                        <div class="form-row">
+                            <div class="name">Password</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" name="phone" placeholder="+91**********">
+                                    <input class="input--style-6" id ="password"name="phone" placeholder="Enter new password">
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                         <div class="form-row">
                             <div class="name">Address</div>
                             <div class="value">
@@ -197,12 +198,13 @@
 
 		var t_mob=$("#mobile").val();
 		var t_address = $("#address").val();
+		var password =$('#password').val();
 
 					$.ajax({
 
 				url:'./custupdate.php',
 				
-				data:{name:t_name,email:t_email,mobile_no:t_mob,address:t_address},
+				data:{name:t_name,email:t_email,mobile_no:t_mob,address:t_address,password:password},
 				type:'POST',
 
 				success:function(data){

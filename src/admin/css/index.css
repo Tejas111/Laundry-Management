@@ -9,7 +9,7 @@
 }
 
 body{
-    background-color:black;
+    background-color:#EBF4FA;
 	height:100%;
 	margin: 0px;
 }
@@ -129,7 +129,7 @@ select, option { width: 80px; }
 	left: 0;
 	position: absolute;
 	font-size: 150%;
-	color:black;
+	color: #60a773;
 	line-height: 1.6;
 	padding: 0 10px;
 	-webkit-transition: all 0.2s ease;
@@ -138,7 +138,7 @@ select, option { width: 80px; }
 }
 
 .dr-menu.dr-menu-open > div #dr-icon {
-	color:black;
+	color: #60a773;
 	left: 100%;
 	-webkit-transform: translateX(-100%);
 	-moz-transform: translateX(-100%);
@@ -163,7 +163,7 @@ select, option { width: 80px; }
 	padding-left: 3em;
 	position: relative;
 	display: block;
-	color:black;
+	color: #60a773;
 	font-size: 0.9em;
 	font-weight: 700;
 	letter-spacing: 1px;
@@ -255,7 +255,7 @@ select, option { width: 80px; }
 .dr-menu ul li a {
 	display: inline-block;
 	padding: 0 20px;
-	color: #161816;
+	color: #60a773;
 }
 
 .dr-menu ul li a:hover {

@@ -30,8 +30,8 @@ header("location:../home/index.php");
 						<div class="dr-trigger"><span id="dr-icon" class="fa fa-bars"></span><a class="dr-label">Menu</a></div>
 						<ul>
 							<li><a id="dr-icon" class="fa fa-compass"  href="home.php">Dashboard</a></li>
-							<li><a id="dr-icon" class="fa fa-check-square-o" href="job_order.php">Job Order</a></li>
-							<!-- <li><a id="dr-icon" class="fa fa-bar-chart-o" href="reporting.php">Reporting</a></li> -->
+							<!-- <li><a id="dr-icon" class="fa fa-check-square-o" href="job_order.php">Job Order</a></li> -->
+							<li><a id="dr-icon" class="fa fa-bar-chart-o" href="reporting.php">Reporting</a></li>
 							<li><a id="dr-icon" class="fa fa-pencil" href="invoice.php">Invoices</a></li>
                             <li><a id="dr-icon" class="fa fa-phone" href="contact.php">Contact Us</a></li>
 							<li><a id="dr-icon" class="fa fa-power-off" href="logout.php">Logout</a></li>

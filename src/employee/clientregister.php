@@ -13,6 +13,7 @@ if (!$link) {
 	strtolower($name);
 	echo $name;
 	$mobile_no=$_POST['mobile_no'];
+	$password = md5($_POST['password']);
 	echo $mobile_no;
 	$agerange=$_POST['agerange'];
 	echo $agerange;
@@ -24,7 +25,7 @@ if (!$link) {
 	echo $email;
 	$address = $_POST['address'];
 	echo $address;
-	$sql="INSERT INTO clients(fullname,contact_no,reg_date,sex,age_range,email,address) VALUES('$name','$mobile_no','$reg_date','$sex','$agerange','$email','$address')";
+	$sql="INSERT INTO clients(fullname,contact_no,reg_date,sex,age_range,email,address,password) VALUES('$name','$mobile_no','$reg_date','$sex','$agerange','$email','$address','$password')";
 	if(mysqli_query($link,$sql))
 	header('Location: job_order.php');
 	else{

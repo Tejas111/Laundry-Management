@@ -83,9 +83,9 @@ $householdquery=mysql_query("SELECT * FROM clothes  WHERE category_id=3");
 			<h1 id="colorlib-logo"><a href="index.html"><span>Laundry</span><span>Point</span></a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
-				<li class="colorlib-active"><a href="custindex.php">Home</a></li>
+				<li><a href="custindex.php">Home</a></li>
 					<li> <a href="work.html">Edit Profile</a></li>
-					<li> <a href="work.html">Place Order</a></li>
+					<li class="colorlib-active"> <a href="custorder.php">Place Order</a></li>
 					<li><a href="../employee/logout.php">Logout</a></li>
 				</ul>
 			</nav>
@@ -95,7 +95,54 @@ $householdquery=mysql_query("SELECT * FROM clothes  WHERE category_id=3");
 
 			<div class="colorlib-work">
 				<div class="container-fluid">
-					
+                <form style="float:left; width:18%;margin-top:20px;" action="./ratechart.php" method="get"> <button type="submit" class="btn btn-primary">View Rate Chart</button> </form>
+                    <form style="float:left;margin-top:-10px;margin-right:30px" action="./custplaceorder.php" method="post">
+                            <!-- <label for="name"  style="float:left; width:10%;margin-top:25px;">Client Name</label> -->
+                            
+                            <!-- <input type="text" class="form-control" id="name" placeholder="Name" name="name" style="float:left; width:20%;margin-top:20px;"> -->
+                            <div id="result" style=""></div>
+                            <button type="submit" class="btn btn-primary" style="float:right; width:10%; margin-top:20px; margin-right:20px;">Submit</button>
+                            <br/><br/><br/>
+                            
+                            <div>
+                            <table class="table table-striped table-bordered table-hover" width="30%">  
+                                <colgroup span="3"></colgroup>
+                                <colgroup span="3"></colgroup>
+                                <colgroup span="3"></colgroup>
+                                
+                                <thead>  
+                                    <tr><th colspan="3">Gent's Items</th><th colspan="3">Lady's Items</th><th colspan="3">Household Items</th></tr> 
+                                    <tr><th>Quantity</th><th>Item Name</th><th>Dryclean?</th><th>Quantity</th><th>Item Name</th><th>Dryclean?</th><th>Quantity</th><th>Item Name</th><th>Dryclean?</th></tr>  
+                                </thead>  
+                                <tbody>  
+                                
+                                <?php
+                                while ($row = mysql_fetch_array($gentquery)) {
+                                    echo "<tr>";
+                                    echo '<td><input type="text" maxlength="2" size="2" name="quantity'.$row[2].'" /></td>';
+                                    echo "<td>$row[2]</td>";
+                                    echo '<td><select name="dryclean'.$row[2].'"><option value="1">Yes</option><option value="0" selected="selected">No</option></select></td>';
+                                    $row2 = mysql_fetch_array($ladyquery);
+                                    if($row2 != false) {
+                                        echo '<td><input type="text" maxlength="2" size="2" name="quantity'.$row2[2].'" /></td>';
+                                        echo "<td>$row2[2]</td>";
+                                        echo '<td><select name="dryclean'.$row2[2].'"><option value="1">Yes</option><option value="0" selected="selected">No</option></select></td>';
+                                    }
+                                    $row3 = mysql_fetch_array($householdquery);
+                                    if($row3 != false) {
+                                        echo '<td><input type="text" maxlength="2" size="2" name="quantity'.$row3[2].'" /></td>';
+                                        echo "<td>$row3[2]</td>";
+                                        echo '<td><select name="dryclean'.$row3[2].'"><option value="1">Yes</option><option value="0" selected="selected">No</option></select></td>';
+                                    }
+                                    echo "</tr>";
+                                }
+                                ?>
+                                
+                                </tbody>  
+                            </table> 
+                          </div>
+                
+                        </form>
 				
 					
 				</div>
@@ -104,57 +151,7 @@ $householdquery=mysql_query("SELECT * FROM clothes  WHERE category_id=3");
            
         </div>
         <!-- Here comes the form -->
-        <div id="block">
-         <h4 style="float:right; width:14%; margin-left:80px;">Job Order</h4>
-               <form style="float:left; width:18%;margin-top:20px;" action="../employee/ratechart.php" method="get"> <button type="submit" class="btn btn-primary">View Rate Chart</button> </form>
-               <form style=" margin-left:25%;margin-top:20px;margin-right:5px;" action="placeorder.php" method="post">
-               <label for="name"  style="float:left; width:10%;margin-top:25px;">Client Name</label>
-               
-               <input type="text" class="form-control" id="name" placeholder="Name" name="name" style="float:left; width:20%;margin-top:20px;">
-               <div id="result" style=""></div>
-               <button type="submit" class="btn btn-primary" style="float:right; width:10%; margin-top:20px; margin-right:20px;">Submit</button>
-               <br/><br/><br/>
-               
-               <div id="insideblock">
-              <table class="table table-striped table-bordered table-hover" width="30%">  
-                <colgroup span="3"></colgroup>
-                <colgroup span="3"></colgroup>
-                <colgroup span="3"></colgroup>
-                
-				<thead>  
-					<tr><th colspan="3">Gent's Items</th><th colspan="3">Lady's Items</th><th colspan="3">Household Items</th></tr> 
-                    <tr><th>Quantity</th><th>Item Name</th><th>Dryclean?</th><th>Quantity</th><th>Item Name</th><th>Dryclean?</th><th>Quantity</th><th>Item Name</th><th>Dryclean?</th></tr>  
-				</thead>  
-				<tbody>  
-                
-				<?php
-				 while ($row = mysql_fetch_array($gentquery)) {
-					  echo "<tr>";
-					  echo '<td><input type="text" maxlength="2" size="2" name="quantity'.$row[2].'" /></td>';
-					  echo "<td>$row[2]</td>";
-					  echo '<td><select name="dryclean'.$row[2].'"><option value="1">Yes</option><option value="0" selected="selected">No</option></select></td>';
-					  $row2 = mysql_fetch_array($ladyquery);
-					  if($row2 != false) {
-						  echo '<td><input type="text" maxlength="2" size="2" name="quantity'.$row2[2].'" /></td>';
-					      echo "<td>$row2[2]</td>";
-					      echo '<td><select name="dryclean'.$row2[2].'"><option value="1">Yes</option><option value="0" selected="selected">No</option></select></td>';
-					  }
-					  $row3 = mysql_fetch_array($householdquery);
-					   if($row3 != false) {
-						  echo '<td><input type="text" maxlength="2" size="2" name="quantity'.$row3[2].'" /></td>';
-					      echo "<td>$row3[2]</td>";
-					      echo '<td><select name="dryclean'.$row3[2].'"><option value="1">Yes</option><option value="0" selected="selected">No</option></select></td>';
-					   }
-					  echo "</tr>";
-				 }
-				?>
-                
-                </tbody>  
-			</table> 
-           </div>
-           
-           </form>
-        </div>
+        
     
         
         <script src="js/ytmenu.js"></script> -->

@@ -48,8 +48,8 @@ if (!$link) {
 						<div class="dr-trigger"><span id="dr-icon" class="fa fa-bars"></span><a class="dr-label">Menu</a></div>
 						<ul>
 							<li><a id="dr-icon" class="fa fa-compass"  href="home.php">Dashboard</a></li>
-							<li><a id="dr-icon" class="fa fa-check-square-o" href="job_order.php">Job Order</a></li>
-							<!-- <li><a id="dr-icon" class="fa fa-bar-chart-o" href="reporting.php">Reporting</a></li> -->
+							<!-- <li><a id="dr-icon" class="fa fa-check-square-o" href="job_order.php">Job Order</a></li> -->
+							<li><a id="dr-icon" class="fa fa-bar-chart-o" href="reporting.php">Reporting</a></li>
 							<li><a id="dr-icon" class="fa fa-pencil" href="invoice.php">Invoices</a></li>
                             <li><a id="dr-icon" class="fa fa-phone" href="contact.php">Contact Us</a></li>
 							<li><a id="dr-icon" class="fa fa-power-off" href="logout.php">Logout</a></li>
@@ -58,13 +58,13 @@ if (!$link) {
             </div><!-- content -->
             <div id="block">
                   <h4 style="float:left; width:14%; margin-left:23px;">Invoice</h4>
-                  <!-- 
-				//    if($status==0) {
-                //        echo '<form style="float:left; width:22%;margin-top:20px;" action="changeorderstatus.php" method="get"> <input type="hidden" name="status" value="1" /> <input type="hidden" name="invoiceid" value="'.$invoiceid.'" /><button type="submit" class="btn btn-primary">Laundry Processed</button> </form>';
-				//    } else if($status==1) {
-				// 	   echo '<form style="float:left; width:22%;margin-top:20px;" action="changeorderstatus.php" method="get"> <input type="hidden" name="status" value="2" /> <input type="hidden" name="invoiceid" value="'.$invoiceid.'" /> <button type="submit" class="btn btn-primary">Complete Order</button> </form>';
-				//    }
-                   -->
+                  <?php  
+				   if($status==0) {
+                       echo '<form style="float:left; width:22%;margin-top:20px;" action="changeorderstatus.php" method="get"> <input type="hidden" name="status" value="1" /> <input type="hidden" name="invoiceid" value="'.$invoiceid.'" /><button type="submit" class="btn btn-primary">Laundry Processed</button> </form>';
+				   } else if($status==1) {
+					   echo '<form style="float:left; width:22%;margin-top:20px;" action="changeorderstatus.php" method="get"> <input type="hidden" name="status" value="2" /> <input type="hidden" name="invoiceid" value="'.$invoiceid.'" /> <button type="submit" class="btn btn-primary">Complete Order</button> </form>';
+				   }
+                  ?>
                   <button type="button" class="btn btn-default btn-lg" style="float:right; margin-top:20px; margin-right:20px;" onClick="printPlease()"><span class="fa fa-print"></span></button>
                   <br><br><br><br>
                   <div id="printblock">

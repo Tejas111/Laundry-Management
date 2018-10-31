@@ -47,6 +47,7 @@ if (!$link) {
 	$length = count($clothtypes);
 	for($i = 0; $i<$length; $i++) {
 		mysql_query("INSERT INTO order_details(job_order_id,cloth_name,quantity,amount,order_type) VALUES('$id','$clothtypes[$i]','$quantities[$i]','$amounts[$i]','$ordertypes[$i]')");
+		
 	}
 	header('Location: showinvoice.php?invoiceid='.$id);
 
