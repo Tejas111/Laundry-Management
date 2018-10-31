@@ -103,9 +103,9 @@ if (!$link) {
    $mail ->Host = "smtp.gmail.com";
    $mail ->Port = 465; // or 587
    $mail ->IsHTML(true);
-   $mail ->Username = "tejaskumark11@gmail.com";
-   $mail ->Password = "1040505vvsbase";
-   $mail ->SetFrom("tejaskumark11@gmail.com");
+   $mail ->Username = "";
+   $mail ->Password = "";
+   $mail ->SetFrom("");
    $mail ->Subject = $mailSub;
    $mail ->Body = $mailMsg;
    $mail ->AddAddress($mailto);

@@ -11,9 +11,9 @@
    $mail ->Host = "smtp.gmail.com";
    $mail ->Port = 465; // or 587
    $mail ->IsHTML(true);
-   $mail ->Username = "tejaskumark11@gmail.com";
-   $mail ->Password = "1040505vvsbase";
-   $mail ->SetFrom("tejaskumark11@gmail.com");
+   $mail ->Username = "";//ADD your gmail id
+   $mail ->Password = "";//ADD Password
+   $mail ->SetFrom("");//ADD gmail id
    $mail ->Subject = $mailSub;
    $mail ->Body = $mailMsg;
    $mail ->AddAddress($mailto);
